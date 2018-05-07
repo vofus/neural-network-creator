@@ -1,0 +1,19 @@
+{
+  "name": "neural-network-creator",
+  "version": "0.0.1",
+  "description": "Console app for creating neural networks",
+	"main": "index.js",
+	"repository": {
+    "type": "git",
+    "url": "https://github.com/vofus/neural-network-creator"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Vofus <vofuss@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "digits-recognition-neural-network": "^0.0.12"
+  }
+}

@@ -1,0 +1,1 @@
+Console app for creating neural networks
