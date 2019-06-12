@@ -5,7 +5,8 @@ const PARAM_NAMES = {
 	EPOCHS: "epochs",
 	LR: "learning-rate",
 	PATH: "path",
-	TRAIN: "train-size"
+	TRAIN: "train-size",
+	MOMENT: "moment"
 };
 
 init();
@@ -16,12 +17,13 @@ async function init() {
 	const learningRate = getParam(PARAM_NAMES.LR, true) || 0.3;
 	const path = getParam(PARAM_NAMES.PATH);
 	const trainSize = getParam(PARAM_NAMES.TRAIN, true) || 1000;
+	const moment = getParam(PARAM_NAMES.MOMENT, true) || 0;
 
-	await createModel(hs, epochs, learningRate, path, trainSize);
+	await createModel(hs, epochs, learningRate, path, trainSize, moment);
 }
 
-async function createModel(hiddenSize, epochs, learningRate, modelPath, trainSize) {
-	const recognizer = new DigitRecognition(hiddenSize, learningRate);
+async function createModel(hiddenSize, epochs, learningRate, modelPath, trainSize, moment) {
+	const recognizer = new DigitRecognition(hiddenSize, learningRate, moment);
 	recognizer.train(trainSize, epochs);
 
 	await Network.serialize(recognizer.network, modelPath);
